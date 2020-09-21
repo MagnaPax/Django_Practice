@@ -27,3 +27,14 @@ def getMemberData():
     datas = cursor.fetchall()
     conn.close()
     return datas
+
+
+def getIdchkData(idv):
+    #print("함수에 들어온 값:", idv)
+    conn = ora.connect(database)
+    cursor = conn.cursor()
+    sql_select = "select count(*) cnt from member_table where id=:id"
+    cursor.execute(sql_select, id=idv)
+    datas = cursor.fetchone()
+    conn.close()
+    return datas

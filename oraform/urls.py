@@ -15,4 +15,5 @@ urlpatterns = [
     # tripmember.html 에서 '가입하기' 버튼이 눌려지면 tripinsert 이 action 됨
     path('tripinsert', views.tripinsert),
     path('tripmemberlist', views.tripmemberlist),
+    path('idchk', views.idchk),
 ]

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
-from oraform.models import memberinsert
+from oraform.models import memberinsert, getMemberData, getIdchkData
 
 
 def index(request):
@@ -30,3 +30,17 @@ def tripmemberlist(request):
     memlist = getMemberData()
     print(type(memlist))
     return render(request, 'oraform/memberlist.html', {'memlist': memlist})
+
+
+def idchk(request):
+    idv = request.GET["id"]
+    # print("idv :", idv)
+    idcnt = getIdchkData(idv)
+    # print("함수 거친뒤 결과값: ", idcnt)
+    if 0 in idcnt:
+        msg = '사용 가능한 아이디 입니다'
+        col = "blue"
+    else:
+        msg = '이미 사용중인 아이디 입니다'
+        col = "red"
+    return render(request, 'oraform/idchk.html', {'msg': msg, 'col':col})

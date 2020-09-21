@@ -33,6 +33,10 @@
 											<div class="row gtr-uniform">
 												<div class="col-6 col-12-xsmall">
 													<input type="text" name="id" id="id" placeholder="ID" />
+													<ul class="actions">
+														<li><input type="button" value="중복확인" id="idBtn"></li>
+														<li><div id="target"></div></li>
+													</ul>
 												</div>
 												<div class="col-6 col-12-xsmall">
 													<input type="password" name="pwd" id="pwd" placeholder="비밀번호" />
@@ -172,6 +176,24 @@
 			<script src="{{baseUrl}}/assets/js/breakpoints.min.js"></script>
 			<script src="{{baseUrl}}/assets/js/util.js"></script>
 			<script src="{{baseUrl}}/assets/js/main.js"></script>
+
+		<script>
+			$(function(){
+				$('#idBtn').click(function(){
+					//alert('idv:'+$('#id').val());
+					let idv = $('#id').val();
+					//location.href="idchk?id="+idv;
+					// 비동기식 ajax처리하기(=브라우저 이동 없음)
+					$.ajax({
+						url:"idchk?id="+idv,
+						success:function(data){
+							console.log("res:"+data)
+							$('#target').html(data);
+						}
+					});
+				});
+			});
+		</script>
 
 	</body>
 </html>
