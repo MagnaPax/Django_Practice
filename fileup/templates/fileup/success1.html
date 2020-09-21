@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>success1.html</title>
+    <style>
+        #wrap{
+            margin:auto; width:450px;
+            border:1px solid #000000;
+        }
+        #wrap img {width:150px; border:0px }
+    </style>
+</head>
+{% load static %}
+{% static "" as baseUrl %}
+<body>
+    <div id="wrap">
+        <p>
+            <img src="{{baseUrl}}/images/{{file_name}}">
+        </p>
+    </div>
+</body>
+</html>

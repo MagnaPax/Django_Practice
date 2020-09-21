@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="kr">
+<!--static 폴더를 읽어라-->
+{% load static %}
+<!--static 폴더를 baseUrl 로 지정-->
+{% static "" as baseUrl %}
+<head>
+    <meta charset="UTF-8">
+    <title>success.html</title>
+</head>
+<body>
+    <div>
+        <img src="{{baseUrl}}/img/ocean.jpg">
+        <p>Success!</p>
+    </div>
+</body>
+</html>

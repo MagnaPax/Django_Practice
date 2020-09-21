@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>product_list.html</title>
+</head>
+<body>
+
+    <h1>product_list 페이지</h1>
+    <div id="wrap">
+        <table border="1" style="width:450px"></table>
+
+        <thead>
+            <tr><th colspan="4">product_list</th></tr>
+        <tr>
+            <th>상품아이디</th>
+            <th>상품이미지</th>
+            <th>상품명</th>
+            <th>판매가격</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% load static%}
+        {% static "" as baseUrl %}
+        {% for e in productList %}
+            <tr>
+                <td>{{e.product_id}}</td>
+                <td><img src="{{baseUrl}}/images/{{e.picture_url}}" style="width:100px"></td>
+                <td>
+                    <a href="product_detail?product_id={e.proudct_id}}">
+                        {{e.product_name}}
+                    </a>
+                </td>
+                <td>{{e.product_name}}</td>
+                <td>{{e.price}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </div>
+    <input type="button" value="상품등록" id="btnAdd">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){ // window.onload 함수와 동일
+            $('#btnAdd').click(function(){
+                location.href="product_write"
+            });
+        });
+    </script>
+
+</body>
+</html>

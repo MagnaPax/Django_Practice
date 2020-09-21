@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>고양이/강아지</title>
+    <style>
+        #wrap{
+            margin:auto; width:450px;
+            border:1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <!-- fileupload를 진행할 때는 반드시 enctype="multipart/form-data" -->
+        <!-- 속성을 지정해야 하고, 이때 전송방식은 post -->
+        <form method="post" id="form1" name="form1" enctype="multipart/form-data">
+            <!-- 변조 방지 위해. 소스 보기로 하면 아래같은 암호같은 것으로 바뀌어 있음 -->
+            <!-- <input type="hidden" name="csrfmiddlewaretoken" value="vSSzB7XOFgK3eeLk9zzv2vKrlgRWDhDy3MbbBV27QS0WQQvtiUXhkdhS6zfhnJxe"> -->
+            {% csrf_token %}
+            <p>개 고양이 이미지 : <input type="file" name="file1" id="file1"></p>
+            <div>
+                <img src="" id="targetImg" style="width:300px">
+            </div>
+            <p>
+                <input type="button" value="등록" onclick="product_write()">
+            </p>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(function(){
+              $('#file1').change(function(){
+                // 업로드 파일 읽기
+                let fileInfo = document.getElementById("file1").files[0];
+                console.log(fileInfo)
+                let reader = new FileReader();
+                // readAsDataURL()을 통해 파일을 읽어 들일때 onload가 실행
+                reader.onload = function(){
+                    $('#targetImg').attr('src', reader.result);
+                };
+                if(fileInfo){
+                    // readAsDataURL()을 통해 파일의 URL을 읽어온다.
+                    reader.readAsDataURL(fileInfo);
+                }
+            });
+            });
+
+            <!-- JavaScript -->
+        <!-- document객체(웹페이지 그 자체)의 form 객체 name="form1" 에 접근 form 에는 action이 필수. 위에서 없지만 여기서 동적으로 할당  -->
+        <!--  submit() 으로 전달      -->
+        function product_write(){
+            document.form1.action = "upload_success2"
+            document.form1.submit();
+        }
+
+        </script>
+    </div>
+</body>
+</html>
+

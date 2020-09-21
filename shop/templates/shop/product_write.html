@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>product_write.html</title>
+</head>
+<body>
+    <div id="wrap">
+        <form method="post" id="form1" name="form1" enctype="multipart/form-data">
+            {%csrf_token%}
+            <p>상품명 :
+                <input type="text" name="product_name" id="product_name">
+            </p>
+            <p>가격 :
+                <input type="number" name="price" id="price" step="500">
+            </p>
+            <p>상품설명 : <textarea name="description" id="description" cols="50" rows="5"></textarea></p>
+            <p>상품이미지 : <input type="file" name="file1"></p>
+            <p>
+                <input type="button" value="상품등록" id="btnAdd">&nbsp;
+                <input type="button" value="상품목록" id="btnList">
+            </p>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){ // window.onload 함수와 동일
+            $('#btnList').click(function(){
+                location.href="shoplist"
+            });
+            $('#btnAdd').click(function(){
+                document.form1.action="product_insert"
+                document.form1.submit();
+            });
+        });
+    </script>
+
+</body>
+</html>

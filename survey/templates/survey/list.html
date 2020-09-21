@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>온라인 설문조사</title>
+</head>
+<body>
+<form method="post" action="save_survey" > <!--투표 버튼을 누르면 post방식으로 views.py 에 있는 save_survey 로 이동-->
+    {% csrf_token %}
+    <p>{{survey.question}}</p>
+    <p><input type="radio" name="num" value="1">{{survey.ans1}}</p>
+    <p><input type="radio" name="num" value="2">{{survey.ans2}}</p>
+    <p><input type="radio" name="num" value="3">{{survey.ans3}}</p>
+    <p><input type="radio" name="num" value="4">{{survey.ans4}}</p>
+    <p>
+        <input type="hidden" name="survey_idx" value="{{survey.survey_idx}}">
+        <input type="submit" value="투표">
+        <input type="button" value="결과확인" onclick="show_result()">
+    </p>
+</form>
+<script>
+    function show_result(){
+        location.href="show_result?survey_idx={{survey.survey_idx}}";
+    }
+</script>
+
+</body>
+</html>

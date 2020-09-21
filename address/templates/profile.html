@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>프로필</title>
+</head>
+<body>
+    <h3>{{msg}}</h3>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>소속</th>
+                <th>기량</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{name}}</td>
+                <td>{{unit}}</td>
+                <td>{{skills}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="getdemo1?num=20">Get Value Demo1</a> <br>
+    <form>
+        age : <input type="text" name="num" id="num">
+        <input type="button" id="btn" value="send">
+    </form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+// window.onload function : 브라우저가 로딩될 때 인식
+    $(function(){
+    // 아이디가 #btn인 요소에 클릭 이벤트를 작성해서 감지 시킨 콜백 메서드
+    $('#btn').click(function(){
+    // 사용자가 입력한 id="num" 값을 getdemo1로 전송한다.
+        location='getdemo1?num='+$('#num').val();
+    });
+    });
+</script>
+
+</body>
+</html>

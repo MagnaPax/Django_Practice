@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Address List Demo</h1>
+    <h2>Total : {{address_count}}</h2>
+    <div>
+    <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="write">Write</a></li>
+    </ul>
+    </div>
+    <div>
+        <table border="1" style="width:600px">
+            <thead style="background:orange">
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>전화번호</th>
+                <th>이메일</th>
+                <th>주소</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr><td colspan="5">
+                <!-- javascript 함수를 호출하기 위한 클릭 이벤트 설정 -->
+                <input type="button" value="write" id="wbtn" onclick="gourl('write')">
+            </td> </tr>
+            </tfoot>
+            <tbody>
+            {% for e in items %}
+                <tr>
+                    <td>{{e.idx}}</td>
+                    <td> <!-- 상세보기 링크 -->
+                        <a href="detail?idx={{e.idx}}">{{e.name}}</a>
+                    </td>
+                    <td>{{e.tel}}</td>
+                    <td>{{e.email}}</td>
+                    <td>{{e.address}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function gourl(url){
+            console.log(url);
+            location="/address/write";
+        }
+    </script>
+
+<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+<!--<script>-->
+<!--// window.onload function : 브라우저가 로딩될 때 인식-->
+<!--    $(function(){-->
+<!--    // 아이디가 #wbtn인 요소에 클릭 이벤트를 작성해서 감지 시킨 콜백 메서드-->
+<!--        $('#wbtn').click(function(){-->
+<!--            location='write';-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+</body>
+</html>

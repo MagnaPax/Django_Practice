@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>{{num}}</h3>
+
+<!-- if else -->
+{% if num >= 19 %}
+    <p style="color:blue">성인입니다</p>
+{% else %}
+    <p style="color:red">미성년입니다</p>
+{% endif %}
+<hr>
+{% for e in range %}
+<p>{{e}}</p>
+{% endfor %}
+
+</body>
+</html>
