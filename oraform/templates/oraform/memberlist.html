@@ -28,15 +28,28 @@
 								<section id="banner">
 									<div class="content">
 										<div class="col-6 col-12-xsmall">
+
 										<!-- {{memlist}} -->
 											{% for a in memlist %}
-											<div class="col-12">
-												<p>{{a}}</p>
-												<h5>이름: {{a.3}}</h5>
+											<div class="col-12 col-12-xsmall">
+												<h3 class="object" style="background:gray">
+													이름: {{a.3}}
+												</h3>
 												<!-- {{ myDate|date:'Y-m-a H:i' }} -->
-												<b>날짜 : {{a.8|date:'Y-m-d H:i'}}</b><br>
-												<b>아이디 : {{a.1}}</b><br>
-												<b>이메일 : {{a.4}}</b><br>
+												<table>
+													<tr>
+														<td>날짜</td>
+														<td>{{a.8|date:'Y-m-d H:i'}}</td>
+													</tr>
+													<tr>
+														<td>아이디</td>
+														<td>{{a.1}}</td>
+													</tr>
+													<tr>
+														<td>이메일</td>
+														<td>{{a.4}}</td>
+													</tr>
+												</table>
 											</div>
 											{% endfor %}
 										</div>

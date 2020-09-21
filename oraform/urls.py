@@ -14,4 +14,5 @@ urlpatterns = [
     # 주소창에 http://localhost/oraform/tripinsert 입력되면 views.py 파일 안의 tripinsert 메소드를 읽어라.
     # tripmember.html 에서 '가입하기' 버튼이 눌려지면 tripinsert 이 action 됨
     path('tripinsert', views.tripinsert),
+    path('tripmemberlist', views.tripmemberlist),
 ]
