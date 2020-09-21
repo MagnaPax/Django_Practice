@@ -180,9 +180,10 @@
 		<script>
 			$(function(){
 				$('#idBtn').click(function(){
-					//alert('idv:'+$('#id').val());
+					//alert('idv:'+$('#id').val()); //값이 들어왔는지 확인을 위해 alert 창으로 보여줌
 					let idv = $('#id').val();
-					//location.href="idchk?id="+idv;
+					//location.href="idchk?id="+idv; // urls.py 통해 idchk.html 로 이동
+
 					// 비동기식 ajax처리하기(=브라우저 이동 없음)
 					$.ajax({
 						url:"idchk?id="+idv,
