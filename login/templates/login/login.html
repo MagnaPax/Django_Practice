@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        #wrap {
+            width:500px; border:1px solid #000;
+            height:120px;
+        }
+        ul li { list-style:none; width:100px; background:green;
+        float:left; height:60px; padding-top:20px;
+        text-align:center; font-size:20px;
+        }
+        a{
+            test-decoration: none;
+        }
+        a:hover{
+            background:orange;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="wrap">
+        <section id="main">
+            <header>
+                <h2>Login Demo</h2>
+                <form  method="post">
+                    {% csrf_token %}
+                    <div class="fields">
+                        <div class="field">
+                            <input type="text" name="id" id="id" placeholder="ID" style="text-transform:lowercase">
+                        </div>
+                        <div class="field">
+                            <input type="password" name="pwd" id="pwd" placeholder="Password">
+                        </div>
+                    <ul class="actions special">
+                        <li>
+                            <input type="submit" value="로그인" class="primary">
+                        </li>
+                    </ul>
+                        <div><span style="color:red">
+                            {{error}}
+                        </span></div>
+                    </div>
+                </form>
+            </header>
+
+        </section>
+    </div>
+
+</body>
+</html>
