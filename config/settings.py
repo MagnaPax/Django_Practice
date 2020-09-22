@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'fileup',
     'shop',
     'oraform',
+    'login',
 ]
 
 MIDDLEWARE = [

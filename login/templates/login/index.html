@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <style>
+        #wrap {
+            width:500px; border:1px solid #000;
+            height:120px;
+        }
+        ul li { list-style:none; width:100px; background:green;
+        float:left; height:60px; padding-top:20px;
+        text-align:center; font-size:20px;
+        }
+        a{
+            test-decoration: none;
+        }
+        a:hover{
+            background:orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <li><a href="main">Home</a></li>
+            <li><a href="main">설문조사</a></li>
+            {% if 'user_id' in request.session %}
+                <li>{{request.session.user_name}}님 반갑습니다</li>
+
+            <li><a href="logout">로그아웃</a></li>
+            <li><a href="main">회원리스트</a></li>
+            {% else %}
+            <li><a href="loginform">로그인</a></li>
+            <li><a href="tripmemberlist">회원가입</a></li>
+            {% endif %}
+
+
+        </ul>
+    </div>
+</body>
+</html>
