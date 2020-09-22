@@ -30,4 +30,5 @@ urlpatterns = [
     path('fileup/', include('fileup.urls')),
     path('shop/', include('shop.urls')),
     path('oraform/', include('oraform.urls')),
+    path('login/', include('login.urls')),
 ]
