@@ -12,4 +12,3 @@ def getLoginChk(**kwargs):
     datas = cursor.fetchall()
     con.close()
     return datas
-옴

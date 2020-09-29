@@ -2,7 +2,7 @@ from django.db import models
 import cx_Oracle as ora
 import pandas as pd
 
-database = 'kosmorpa/test00@192.168.0.68:1521/orcl'
+database = 'kosmorpa/test00@192.168.0.75:1521/orcl'
 
 # 메소드 실행 전에 DB에 member_table 테이블이 만들어져 있어야 됨
 

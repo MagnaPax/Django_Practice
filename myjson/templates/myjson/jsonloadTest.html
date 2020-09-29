@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>jsonloadTest.html</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css"/>
+
+    </head>
+
+    <body>
+
+        <div id="wrap">
+
+            <p>
+
+                <input type="button" id="loadJson" value="JsonLoad">
+
+            </p>
+
+            <div id="target" style="width:200px;">jsonData</div>
+
+        </div>
+
+        <div id="chart_donut"></div>
+
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+
+            $(function () {
+
+                $('#loadJson').click(function () {
+
+                    console.log('click');
+
+                    //Ajax를 사용해서 json데이터를 로딩하기
+
+                    $.ajax({
+
+                        url: 'jsondemo1',
+
+                        success: function (data) {
+
+                            makeJson(data);
+
+                        }
+                    });
+
+                    // makeJson func
+
+                    function makeJson(jsonData) {
+
+                        var datas = new Array(); //javascript Array
+
+                        for (var key in jsonData) {
+
+                            datas.push(key);
+
+                            datas.push(jsonData[key]);
+
+                            console.log(jsonData[key]);
+
+                        }
+
+                        console.log("datas :" + datas);
+
+                        var chart = c3.generate({
+
+                            bindto: '#chart_donut',
+
+                            data: {
+
+                                type: 'donut',
+
+                                columns: datas
+
+                            }
+
+                        });
+
+                    }
+
+                    // ------------------------------
+
+                });
+
+            });
+        </script>
+
+    </body>
+
+</html>
+
+<!-- $.getJSON('jsondemo1',function(data){ console.log(data)
+$.each(data['a'],function(key,value){ console.log(key+":"+value); }); });

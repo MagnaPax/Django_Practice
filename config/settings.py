@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'shop',
     'oraform',
     'login',
+    'myjson',
 ]
 
 MIDDLEWARE = [
