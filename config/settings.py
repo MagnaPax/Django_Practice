@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'oraform',
     'login',
     'myjson',
+    'wordcnt',
 ]
 
 MIDDLEWARE = [

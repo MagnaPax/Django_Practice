@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>WordCountForm</title>
+</head>
+<body>
+<h1> WordCount Form 예제 </h1>
+<!-- 1. 첫번째 예제 : wordcntProcess -->
+<!--<form method="post" action="wordcntProcess">-->
+<form method="post" action="wordcntProcessVisual">
+{% csrf_token %}
+    <p> 입력 :</p>
+    <p><textarea name="wordv" id="wordv" cols="120" rows="20"></textarea> </p>
+    <p><input type="submit" value="send"></p>
+</form>
+</body>
+</html>

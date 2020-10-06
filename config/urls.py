@@ -32,4 +32,5 @@ urlpatterns = [
     path('oraform/', include('oraform.urls')),
     path('login/', include('login.urls')),
     path('myjson/', include('myjson.urls')),
+    path('wordcnt/', include('wordcnt.urls')),
 ]

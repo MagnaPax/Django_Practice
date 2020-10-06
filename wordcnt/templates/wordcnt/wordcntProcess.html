@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>WordCount 기본 예제 </h1>
+    {{wordv_cnt_totalList}}
+<!-- 깜짝 연습문제 : 단어 : 빈도수 형태로 출력 하시오. -->
+{% for item,val in wordv_cnt_totalList %}
+    <p>{{item}}:{{val}}</p>
+{% endfor %}
+</body>
+</html>
